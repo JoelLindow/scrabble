@@ -35,7 +35,16 @@ class ScrabbleTest < Minitest::Test
   def test_it_can_score_nil_input_as_nil
     game = Scrabble.new
 
-    assert_equal nil, game.score(nil)
+    assert_nil game.score(nil)
+  end
+
+  def test_it_is_case_insensitive
+    game = Scrabble.new
+
+    assert_equal 1, game.score("A")
+    assert_equal 1, game.score("a")
+    assert_equal 4, game.score("F")
+    assert_equal 4, game.score("f")
   end
 
 end
