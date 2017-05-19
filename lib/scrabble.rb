@@ -1,7 +1,16 @@
+require 'pry'
 class Scrabble
 
   def score(word)
-    1
+    total = 0
+    if word == nil
+      total = nil
+    else
+      word.chars.each do |letter|
+        total += point_values[letter.upcase]
+      end
+    end
+    total
   end
 
   def point_values
@@ -15,4 +24,6 @@ class Scrabble
       "Y"=>4, "Z"=>10
     }
   end
+
+
 end
